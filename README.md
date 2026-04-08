@@ -11,6 +11,9 @@ Este projeto simula a infraestrutura de dados de uma plataforma de streaming mus
 
 ## 🔍 O que foi desenvolvido (Fase 1: Modelagem)
 Nesta etapa, o banco de dados `streaming_music.db` foi estruturado e as tabelas foram criadas, divididas em três centrais:
+
+![Diagrama de Entidade-Relacionamento do Banco de Dados](img/diagram.png)
+
 - **Tabela `Users`:** Consta os usuários da plataforma com seus respectivos dados cadastrais.
 - **Tabela `Musicas`:** Catálogo de músicas com título, artista, gênero e duração em segundos.
 - **Tabela `Streams`:** Tabela principal do modelo que registra cada play dado na plataforma, conectando o usuário à música e indicando o horário, além de uma coluna booleana `completada` para sinalizar se a música foi ouvida até o final ou pulada.
@@ -32,6 +35,12 @@ Nesta etapa, transformei os dados brutos em informação através de consultas S
 - **Ranking de Artistas:** Usei funções de agregação (`GROUP BY`, `COUNT` e `SUM`) para consolidar a quantidade de reproduções, criando um ranking decrescente de popularidade dos artistas mais tocados na plataforma. 
 
 
+## 🚀 Resultado Final
+Abaixo, um exemplo do ranking de popularidade gerado pelo pipeline, consolidando os dados de streams por artista:
+
+![Ranking de Artistas no Terminal](img/ranking.png)
+
+
 ## 🛠️ Tecnologias e Bibliotecas
 - **Banco de Dados:** SQLite.
 - **Manipulação:** Pandas.
@@ -44,8 +53,9 @@ Nesta etapa, transformei os dados brutos em informação através de consultas S
 ├── data/
 │   └── streaming_music.db   # Banco de dados (ignorado no Git)
 ├── .gitignore
-├── 01_create_db.py   # Criação das tabelas
-├── 02_data_injection.py   # Injeção dos dados
-├── 03_queries.py   # Consultas e relatórios
+├── img/                     # Imagens do README
+├── 01_create_db.py          # Criação das tabelas
+├── 02_data_injection.py     # Injeção dos dados
+├── 03_queries.py            # Consultas e relatórios
 └── README.md
 ```
