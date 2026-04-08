@@ -1,15 +1,15 @@
-# 🎵 Pipeline de Streaming Musical
+# Pipeline de Streaming Musical
 
 Este projeto simula a infraestrutura de dados de uma plataforma de streaming musical. Através da construção de um pipeline ETL, o sistema gerencia informações de usuários, um catálogo de músicas e o histórico de reproduções (streams), permitindo a extração de métricas de consumo.
 
 
-## 📌 Status do Projeto
+## Status do Projeto
 - [x] **Fase 1: Modelagem e Criação do Banco de Dados** - Concluído.
 - [x] **Fase 2: Injeção de Dados (ETL)** - Concluído.
 - [x] **Fase 3: Consultas e Geração de Relatórios** - Concluído.
 
 
-## 🔍 O que foi desenvolvido (Fase 1: Modelagem)
+## O que foi desenvolvido (Fase 1: Modelagem)
 Nesta etapa, o banco de dados `streaming_music.db` foi estruturado e as tabelas foram criadas, divididas em três centrais:
 
 ![Diagrama de Entidade-Relacionamento do Banco de Dados](img/diagram.png)
@@ -19,7 +19,7 @@ Nesta etapa, o banco de dados `streaming_music.db` foi estruturado e as tabelas 
 - **Tabela `Streams`:** Tabela principal do modelo que registra cada play dado na plataforma, conectando o usuário à música e indicando o horário, além de uma coluna booleana `completada` para sinalizar se a música foi ouvida até o final ou pulada.
 
 
-## ⚙️ O que foi desenvolvido (Fase 2: Injeção de Dados)
+## O que foi desenvolvido (Fase 2: Injeção de Dados)
 Nesta etapa, populei o banco com dados simulados, representando um cenário real de streaming:
 - **Usuários** com planos distintos (`Free` e `Premium`).
 - **Músicas** de gêneros variados (`Rock`, `Pop` e `MPB`).
@@ -27,7 +27,7 @@ Nesta etapa, populei o banco com dados simulados, representando um cenário real
 - Utilizei `executemany()` com placeholders `?` para inserção segura dos dados.
 
 
-## 📊 O que foi desenvolvido (Fase 3: Consultas e Relatórios)
+## O que foi desenvolvido (Fase 3: Consultas e Relatórios)
 Nesta etapa, transformei os dados brutos em informação através de consultas SQL:
 - **JOIN** Cruzei as três tabelas (`Streams`, `Users` e `Musicas`) para gerar um relatório completo de reproduções.
 - **CASE WHEN:** Adicionei rótulos legíveis (`Sim` / `Não (Pulou)`) na coluna booleana `completada`, facilitando a análise de engajamento.
@@ -35,20 +35,20 @@ Nesta etapa, transformei os dados brutos em informação através de consultas S
 - **Ranking de Artistas:** Usei funções de agregação (`GROUP BY`, `COUNT` e `SUM`) para consolidar a quantidade de reproduções, criando um ranking decrescente de popularidade dos artistas mais tocados na plataforma. 
 
 
-## 🚀 Resultado Final
+## Resultado Final
 Abaixo, um exemplo do ranking de popularidade gerado pelo pipeline, consolidando os dados de streams por artista:
 
 ![Ranking de Artistas no Terminal](img/ranking.png)
 
 
-## 🛠️ Tecnologias e Bibliotecas
+## Tecnologias e Bibliotecas
 - **Banco de Dados:** SQLite.
 - **Manipulação:** Pandas.
 - **Linguagem:** Python.
 - **Conceitos aplicados:** Modelagem relacional, Foreign Keys, ETL, JOIN, CASE WHEN.
 
 
-## 📂 Estrutura de Pastas
+## Estrutura de Pastas
 ```
 ├── data/
 │   └── streaming_music.db   # Banco de dados (ignorado no Git)
