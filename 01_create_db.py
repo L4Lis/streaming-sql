@@ -4,7 +4,9 @@ import sqlite3
 import pandas as pd
 
 # configurar caminho
-file_path = r'C:/Users/MeuPC/Documents/Data Science/projects/streaming-sql/data'
+base_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(base_dir, 'data')
+
 if not os.path.exists(file_path):
     os.makedirs(file_path)
 

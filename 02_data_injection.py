@@ -2,7 +2,8 @@
 import os
 import sqlite3
 
-file_path = r'C:/Users/MeuPC/Documents/Data Science/projects/streaming-sql/data'
+base_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(base_dir, 'data')
 data_path = os.path.join(file_path, 'streaming_music.db')
 
 conn = sqlite3.connect(data_path)
