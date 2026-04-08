@@ -6,7 +6,7 @@ Este projeto simula a infraestrutura de dados de uma plataforma de streaming mus
 ## 📌 Status do Projeto
 - [x] **Fase 1: Modelagem e Criação do Banco de Dados** - Concluído.
 - [x] **Fase 2: Injeção de Dados (ETL)** - Concluído.
-- [ ] **Fase 3: Consultas e Geração de Relatórios** - 🟢 Em desenvolvimento.
+- [x] **Fase 3: Consultas e Geração de Relatórios** - Concluído.
 
 
 ## 🔍 O que foi desenvolvido (Fase 1: Modelagem)
@@ -24,6 +24,14 @@ Nesta etapa, populei o banco com dados simulados, representando um cenário real
 - Utilizei `executemany()` com placeholders `?` para inserção segura dos dados.
 
 
+## 📊 O que foi desenvolvido (Fase 3: Consultas e Relatórios)
+Nesta etapa, transformei os dados brutos em informação através de consultas SQL:
+- **JOIN** Cruzei as três tabelas (`Streams`, `Users` e `Musicas`) para gerar um relatório completo de reproduções.
+- **CASE WHEN:** Adicionei rótulos legíveis (`Sim` / `Não (Pulou)`) na coluna booleana `completada`, facilitando a análise de engajamento.
+- **Relatório de Streaming:** Um relatório gerado com `pandas.read_sql_query()`, exibindo usuário, música, artista, horário e se a música foi ouvida até o fim.
+- **Ranking de Artistas:** Usei funções de agregação (`GROUP BY`, `COUNT` e `SUM`) para consolidar a quantidade de reproduções, criando um ranking decrescente de popularidade dos artistas mais tocados na plataforma. 
+
+
 ## 🛠️ Tecnologias e Bibliotecas
 - **Banco de Dados:** SQLite.
 - **Manipulação:** Pandas.
@@ -34,9 +42,10 @@ Nesta etapa, populei o banco com dados simulados, representando um cenário real
 ## 📂 Estrutura de Pastas
 ```
 ├── data/
-│   └── streaming_music.db   # Banco de dados
+│   └── streaming_music.db   # Banco de dados (ignorado no Git)
 ├── .gitignore
 ├── 01_create_db.py   # Criação das tabelas
 ├── 02_data_injection.py   # Injeção dos dados
+├── 03_queries.py   # Consultas e relatórios
 └── README.md
 ```
