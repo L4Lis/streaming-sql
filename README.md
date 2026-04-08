@@ -35,8 +35,8 @@ Nesta etapa, populei o banco com dados simulados, representando um cenário real
 ```
 ├── data/
 │   └── streaming_music.db   # Banco de dados
-├── notebooks/
-│   ├── 01_create_db.py      # Criação das tabelas
-│   └── 02_data_injection.py # Injeção dos dados
+├── .gitignore
+├── 01_create_db.py   # Criação das tabelas
+├── 02_data_injection.py   # Injeção dos dados
 └── README.md
 ```
